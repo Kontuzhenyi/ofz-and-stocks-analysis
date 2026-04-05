@@ -1,0 +1,13 @@
+https://iss.moex.com/iss/securities/MTSS.json?iss.only=boards,description&iss.meta=off
+
+МТС
+segments = [
+    ("MTSI", "EQBR", "2011-01-01", "2011-11-18"),
+    ("MTSS", "EQBR", "2011-11-21", "2013-07-05"),
+    ("MTSS", "TQBR", "2021-07-08", "2026-03-31"),
+]
+Сбербанк
+segments = [
+    ("SBER", "EQBR", "2011-01-01", "2013-03-22"),
+    ("SBER", "TQBR", "2013-03-25", "2026-03-31"),
+]
