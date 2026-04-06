@@ -2,18 +2,8 @@ import requests
 import pandas as pd
 from pathlib import Path
 
-# segments = [
-#     ("MTSI", "EQBR", "2011-01-01", "2011-11-18"),
-#     ("MTSS", "EQBR", "2011-11-21", "2013-07-05"),
-#     ("MTSS", "TQBR", "2021-07-08", "2026-03-31"),
-# ]
-# segments = [
-#     ("SBER", "EQBR", "2011-01-01", "2013-03-22"),
-#     ("SBER", "TQBR", "2013-03-25", "2026-03-31"),
-# ]
 segments = [
-    ("LKOH", "EQBR", "2011-01-01", "2013-03-22"),
-    ("LKOH", "TQBR", "2013-03-25", "2026-03-31"),
+    ("OZON", "TQBR", "2020-11-24", "2026-03-31"),
 ]
 
 def fetch_segment(secid, board, date_from, date_to):
@@ -56,6 +46,10 @@ def fetch_segment(secid, board, date_from, date_to):
 
     return df
 
+def vizual(number):
+    return round(number*100, 2)
+    
+
 parts = [fetch_segment(*segment) for segment in segments]
 history = pd.concat(parts, ignore_index=True).sort_values("TRADEDATE")
 
@@ -77,10 +71,10 @@ annual_expected_geo = (1 + avg_monthly) ** 12 - 1
 annual_risk = std_monthly * (12 ** 0.5)
 coef_variation = annual_risk / annual_expected_arith
 
-print("Средняя месячная доходность:", round(avg_monthly*100, 2))
-print("Ожидаемая годовая доходность:", round(annual_expected_arith*100, 2))
-print("Геометрическая среднегодовая доходность:", round(annual_expected_geo*100, 2))
-print("Годовой риск:", round(annual_risk*100, 2))
+# print("Средняя месячная доходность:", round(avg_monthly*100, 2))
+print("Ожидаемая годовая доходность:", vizual(annual_expected_arith))
+# print("Геометрическая среднегодовая доходность:", round(annual_expected_geo*100, 2))
+print("Годовой риск:", vizual(annual_risk))
 print("Коэффициент вариации:", round(coef_variation, 2))
 
 # Сохранение файлов
