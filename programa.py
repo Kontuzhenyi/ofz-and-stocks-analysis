@@ -3,8 +3,8 @@ import pandas as pd
 from pathlib import Path
 
 segments = [
-    ("SBER", "EQBR", "2011-01-01", "2013-03-22"),
-    ("SBER", "TQBR", "2013-03-25", "2026-03-31"),
+    # ("SBER", "EQBR", "2011-01-01", "2013-03-22"),
+    ("SBER", "TQBR", "2021-03-25", "2026-03-31"),
 ]
 
 
