@@ -3,8 +3,10 @@ import pandas as pd
 from pathlib import Path
 
 segments = [
-    ("OZON", "TQBR", "2020-11-24", "2026-03-31"),
+    ("SBER", "EQBR", "2011-01-01", "2013-03-22"),
+    ("SBER", "TQBR", "2013-03-25", "2026-03-31"),
 ]
+
 
 def fetch_segment(secid, board, date_from, date_to):
     rows = []
