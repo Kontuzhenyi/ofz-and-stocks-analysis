@@ -79,7 +79,7 @@ def main() -> None:
     clean_price_percent = 73.16 # % бумаги от номинала
     accrued_interest = 2.4 # НКД
     coupon_value = 29.42 # Сумма купона
-    settle_date = date(2026, 4, 7) # Дата покупки облигации
+    settle_date = date(2026, 4, 2) # Дата покупки облигации
 
     clean_price = face_value * clean_price_percent / 100
     dirty_price = clean_price + accrued_interest
@@ -97,6 +97,13 @@ def main() -> None:
         CashFlow(date(2030, 9, 11), coupon_value),
         CashFlow(date(2031, 3, 12), coupon_value + face_value),
     ]
+    # cashflows = [
+    #     CashFlow(date(2026, 5, 20), coupon_value),
+    #     CashFlow(date(2026, 11, 20), coupon_value),
+    #     CashFlow(date(2027, 5, 20), coupon_value),
+    #     CashFlow(date(2027, 11, 20), coupon_value),
+    #     CashFlow(date(2028, 5, 17), coupon_value + face_value),
+    # ]
 
     ytm_clean = solve_ytm(clean_price, settle_date, cashflows)
     ytm_dirty = solve_ytm(dirty_price, settle_date, cashflows)
